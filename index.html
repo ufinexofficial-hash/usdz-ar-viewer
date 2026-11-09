@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ee">
+  <meta name="description" content="Посмотрите настольную лампу «Орбита» в вашем пространстве через Apple AR Quick Look. Без установки приложения.">
+  <title>Орбита — примерьте в пространстве</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="vendor/qrcode.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">К модели</a>
+  <header class="header wrap">
+    <a class="brand" href="./" aria-label="Орбита, главная"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 19a12 12 0 0 1 24 0H4Z"/><path d="M16 19v9m-5 0h10"/></svg>ОРБИТА<span>ОБЪЕКТЫ В ПРОСТРАНСТВЕ</span></a>
+    <a class="header-link" href="#how">Как это работает <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="title">
+      <div class="visual">
+        <div class="visual-top"><span class="eyebrow">КОЛЛЕКЦИЯ ОБЪЕКТОВ / 001</span><span class="pill">USDZ · AR</span></div>
+        <a id="ar-preview" class="model-link" rel="ar" href="model.usdz" type="model/vnd.usdz+zip" aria-label="Открыть лампу «Орбита» в Apple AR Quick Look" aria-describedby="support-message">
+          <img src="preview.png" alt="Лампа «Орбита»: терракотовый купол на светлом керамическом основании" width="1200" height="1200" fetchpriority="high">
+        </a>
+        <div class="visual-bottom"><span><span class="dot"></span> Демонстрационная модель</span><span id="preview-hint">Нажмите на модель <span aria-hidden="true">↗</span></span></div>
+      </div>
+      <div class="details">
+        <p class="eyebrow terra">APPLE AR QUICK LOOK</p>
+        <h1 id="title">Чуть ближе<br>к вашему <em>дому.</em></h1>
+        <p class="intro">Примерьте объект в реальном пространстве.<br class="desktop-break"> Достаточно вашего iPhone или iPad.</p>
+        <div class="product"><div><h2>Настольная лампа «Орбита»</h2><p>Мягкие формы. Тёплая керамика.</p></div><span class="swatch" aria-label="Цвет: терракота"></span></div>
+        <dl class="specs"><div><dt>ВЫСОТА</dt><dd>28 <span>см</span></dd></div><div><dt>ДИАМЕТР</dt><dd>22 <span>см</span></dd></div><div><dt>МАСШТАБ</dt><dd>1:1</dd></div></dl>
+        <button id="ar-button" class="primary" type="button"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg><span id="ar-button-label">Посмотреть в моём пространстве</span><span aria-hidden="true">↗</span></button>
+        <p id="support-message" class="support" role="status">Откройте страницу в Safari на совместимом iPhone или iPad и нажмите на превью.</p>
+        <noscript><p class="support">JavaScript выключен. Нажмите на изображение выше в Safari на совместимом iPhone или iPad. QR-код доступен <a href="qr-code.svg">отдельным файлом</a>.</p></noscript>
+        <div class="secondary-links"><a href="model.usdz" download>Скачать USDZ <span aria-hidden="true">↓</span></a><button id="share-button" type="button">Поделиться страницей <span aria-hidden="true">↗</span></button></div>
+      </div>
+    </section>
+    <section class="guide" id="how" aria-labelledby="how-title">
+      <div class="guide-heading"><p class="eyebrow">ИЗ ЭКРАНА В РЕАЛЬНОСТЬ</p><h2 id="how-title">Три простых шага.</h2><p>Без приложения.<br>В вашем привычном Safari.</p></div>
+      <ol class="steps"><li><span class="step-number">01</span><h3>Откройте модель</h3><p>Нажмите на превью или кнопку выше. Модель откроется в Quick Look.</p></li><li><span class="step-number">02</span><h3>Найдите поверхность</h3><p>Выберите режим AR и медленно наведите камеру на хорошо освещённый стол или пол.</p></li><li><span class="step-number">03</span><h3>Разместите объект</h3><p>Дождитесь появления модели. Перемещайте её пальцем и поворачивайте жестом двух пальцев.</p></li></ol>
+    </section>
+    <section class="phone-section" id="phone" aria-labelledby="phone-title">
+      <div><p class="eyebrow terra">ПРОДОЛЖИТЕ НА ТЕЛЕФОНЕ</p><h2 id="phone-title">Ваше пространство —<br>лучшая примерочная.</h2><p>Наведите камеру iPhone или iPad на QR-код.<br>Откройте ссылку в Safari и примерьте лампу.</p><a id="qr-download" class="text-link" href="qr-code.svg" download="orbita-qr.svg">Скачать QR-код <span aria-hidden="true">↓</span></a></div>
+      <div class="qr-panel"><div id="qr" class="qr" role="img" aria-label="QR-код со ссылкой на эту страницу"><img src="qr-code.svg" width="176" height="176" alt="QR-код опубликованной страницы"></div><p id="qr-caption">Отсканируйте камерой</p><p id="qr-state" class="qr-state" role="status"></p></div>
+    </section>
+    <p id="share-status" class="share-status" role="status" aria-live="polite"></p>
+  </main>
+  <footer class="footer wrap"><span>ОРБИТА <span class="muted">/ AR VIEWER</span></span><span>Создано для Apple AR Quick Look</span><a href="README.md">О проекте <span aria-hidden="true">↗</span></a></footer>
+  <dialog id="share-dialog"><button id="close-dialog" class="dialog-close" type="button" aria-label="Закрыть">×</button><h2>Ссылка на страницу</h2><p>Скопируйте адрес и откройте в Safari на iPhone или iPad.</p><label for="share-url">Адрес страницы</label><input id="share-url" type="url" readonly><button id="copy-url" class="primary" type="button">Скопировать ссылку</button></dialog>
+</body>
+</html>

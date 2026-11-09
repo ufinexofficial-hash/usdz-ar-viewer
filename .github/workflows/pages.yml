@@ -1,0 +1,44 @@
+name: Publish AR viewer
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Generate QR for the actual Pages URL and prepare static files
+        env:
+          PAGES_URL: ${{ steps.pages.outputs.base_url }}
+        run: node scripts/build.cjs "$PAGES_URL" .site
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: .site
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Verify HTTPS and USDZ MIME on the public site
+        env:
+          PAGES_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          cp .site/qr-code.svg qr-code.svg
+          cp .site/publication.json publication.json
+          node scripts/check-deployment.cjs "$PAGES_URL"
